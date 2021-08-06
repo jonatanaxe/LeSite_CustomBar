@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Custom Bar Customer Group
+ *
+ * @package LeSite_CustomBar
+ * @author Jonatan Machado <jonatanaxe@lesite.ca>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="lesite" translate="label" sortOrder="10">
+            <label>LeSite</label>
+        </tab>
+        <section id="custom_bar" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Promotion Banners</label>
+            <tab>lesite</tab>
+            <resource>LeSite_CustomBar::custombar_configuration</resource>
+            <group id="bar" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Bar Settings</label>
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Module Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,62 @@
+<?php
+/**
+ * Custom Bar Customer Group
+ *
+ * @package LeSite_CustomBar
+ * @author Jonatan Machado <jonatanaxe@lesite.ca>
+ */
+?>
+
+<?php if ($block->getProperty('custom_bar/bar/enable')): ?>
+    <div class="custom-bar" data-bind="scope: 'customer'">
+        <!-- ko if: customer().is_logged_in  -->
+            <div class="block-logged-in">
+                <!-- ko if: customer().firstname  -->
+                    <span class="name"
+                            data-bind="text: new String('<?= $block->escapeHtml(__('Welcome Back %1', '%1')) ?>').replace('%1', customer().firstname)">
+                    </span>
+                <!-- /ko -->
+                <!-- ko if: customer().email  -->
+                    <span class="email"
+                            data-bind="text: new String('<?= $block->escapeHtml(__('Email: %1', '%1')) ?>').replace('%1', customer().email)">
+                    </span>
+                <!-- /ko -->
+                <!-- ko if: customer().customer_group_id  -->
+                    <span class="group"
+                            data-bind="text: new String('<?= $block->escapeHtml(__('You are in the group: %1', '%1')) ?>').replace('%1', customer().customer_group_name)">
+                    </span>
+                <!-- /ko -->
+                <span class="btn-logout"
+                        data-bind='html:"<?= $block->escapeHtml(__("<a class='btn' href='%1'>Logout</a>", $block->getUrl('customer/account/logout'))) ?>"'>
+                </span>
+            </div>
+        <!-- /ko -->
+        <!-- ko ifnot: customer().is_logged_in  -->
+            <div class="block-not-logged-in">
+                <span class="name"
+                        data-bind="text: new String('<?= $block->escapeHtml(__('Welcome Back Visitor')) ?>')">
+                </span>
+                <span class="group"
+                    data-bind="text: new String('<?= $block->escapeHtml(__('You are in the group: Visitor')) ?>')">
+                </span>
+                <span class="btn-login"
+                        data-bind='html:"<?= $block->escapeHtml(__("<a class='btn' href='%1'>Please login</a>", $block->getUrl('customer/account/login'))) ?>"'>
+                </span>
+            </div>
+        <!-- /ko -->
+    </div>
+
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "customer": {
+                            "component": "Magento_Customer/js/view/customer"
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+<?php endif; ?>
