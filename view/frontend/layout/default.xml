@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Custom Bar Customer Group
+ *
+ * @package LeSite_CustomBar
+ * @author Jonatan Machado <jonatanaxe@lesite.ca>
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+       <css src="LeSite_CustomBar::css/style-l.css"/>
+    </head>
+    <body>
+        <referenceContainer name="header.container">
+                <block class="LeSite\CustomBar\Block\Bar" name="custom_bar" template="LeSite_CustomBar::bar.phtml" />
+        </referenceContainer>
+
+         <move element="custom_bar" destination="header.container" before="-" />
+    </body>
+</page>
