@@ -1,0 +1,54 @@
+/**
+ * Custom Bar Customer Group
+ *
+ * @package LeSite_CustomBar
+ * @author Jonatan Machado <jonatanaxe@lesite.ca>
+ */
+
+@desktop:   ~"screen and (min-width: 768px)";
+@mobile:    ~"screen and (max-width: 767px)";
+@color-bg: #004b91;
+@color-font: #fff;
+
+.custom-bar {
+    display:flex;
+    background-color: @color-bg;
+    color: @color-font;
+    justify-content: center;
+    padding: 20px;
+    font-weight: bold;
+    .block-logged-in,
+    .block-not-logged-in {
+        display: flex;
+        align-items: center;
+        span {
+            border-right: 1px solid;
+            padding: 0px 10px;
+            &.group,
+            &.btn-logout,
+            &.btn-login{
+                border-right: 0px solid;
+            }
+        }
+    }
+
+    a{
+        &.btn{
+            padding: 10px 27px;
+            display: block;
+            line-height: 1;
+            border-radius: 20px;
+            border: 3px solid #fff;
+            color: #fff;
+            text-transform: uppercase;
+            box-shadow: 0px 3px 5px -1px #b3b5d6;
+            -webkit-box-shadow: 0px 3px 5px -1px #b3b5d6;
+            transition: .4s ease;
+            text-decoration: none;
+            &:hover{
+                -webkit-box-shadow: 0px 3px 11px -1px #b3b5d6;
+                box-shadow: 0px 3px 11px -1px #b3b5d6;
+            }
+        }
+    }
+}
