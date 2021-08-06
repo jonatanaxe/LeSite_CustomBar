@@ -1,0 +1,14 @@
+{
+    "name": "lesite/custom-bar",
+    "description": "Magento 2 module Custom Bar",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "require": {
+      "php": "^7.1.0"
+    },
+    "autoload": {
+      "files": [
+        "registration.php"
+      ]
+    }
+  }
